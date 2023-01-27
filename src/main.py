@@ -7,10 +7,14 @@ import glob
 folder_path = ".\\mov"
 # Declare the path of MPC-HC
 player_path = "C:\\Program Files (x86)\\K-Lite Codec Pack\\MPC-HC64\\mpc-hc64.exe"
+# Declare playable file formats
+file_formats = ['mp4', 'mkv', 'avi']
 
 
 # Get a list of all video files in the folder
-all_files = glob.glob(folder_path + '/**/*.*', recursive=True)
+all_files = list()
+for file_format in file_formats:
+    all_files.extend(glob.glob(folder_path + '/**/*.' + file_format, recursive=True))
 
 
 # Read the list of already played video files from a file
